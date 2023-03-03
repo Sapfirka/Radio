@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import ru.netology.domain.Radio;
 
 public class RadioTest {
 
@@ -12,7 +13,6 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
-
     @Test
     public void shouldSetStation() {
         Radio stat = new Radio();
@@ -22,7 +22,6 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
-
     @Test
     public void shouldSetOver0RadioStation() {
         Radio stat = new Radio();
@@ -72,10 +71,11 @@ public class RadioTest {
     public void mooveBackLessThanMinRadioStation() {
         Radio stat = new Radio();
         stat.setCurrentRadioStation(-1);
-        int expected = stat.currentRadioStation;
+        int expected = 0;
         int actual = stat.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
+
     }
 
     @Test
@@ -137,7 +137,7 @@ public class RadioTest {
         Radio stat = new Radio();
         stat.setCurrentVolume(10);
         stat.increaseVolume();
-        int expected = stat.currentVolume;
+        int expected = 10;
         int actual = stat.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -161,7 +161,7 @@ public class RadioTest {
         Radio stat = new Radio();
         stat.setCurrentVolume(0);
         stat.reduceVolume();
-        int expected = stat.currentVolume;
+        int expected = 0;
         int actual = stat.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
